@@ -77,13 +77,12 @@ export const WORK: Project[] = [
 }));
 
 /* ---------------------------- social proof ------------------------------ */
-/** PLACEHOLDER - client names (rendered as text logos until you add SVGs). */
 /** Past clients - logos live in /public/clients. width/height = intrinsic size (for aspect ratio). */
 export const CLIENTS = [
   { name: "Scholar IQ", logo: "/clients/scholar-iq.svg", width: 2376, height: 656 },
   { name: "findHR", logo: "/clients/findhr.png", width: 145, height: 35 },
   { name: "Ace Tech", logo: "/clients/ace-tech.png", width: 1024, height: 471 },
-  { name: "BE Infinity", logo: "/clients/be-infinity.jpg", width: 1024, height: 1024 },
+  { name: "BE Infinity", logo: "/clients/be-infinity-wordmark.png", width: 760, height: 460 },
   { name: "Bharosa 365", logo: "/clients/bharosa-365.png", width: 240, height: 240 },
   { name: "Indian Press Union", logo: "/clients/indian-press-union.png", width: 1024, height: 1024 },
 ];
