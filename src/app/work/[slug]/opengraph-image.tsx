@@ -5,12 +5,6 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Drova Labs case study";
 
-export async function generateImageMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const project = WORK.find((p) => p.slug === slug);
-  return [{ id: slug, alt: project ? `${project.title} — Drova Labs` : "Drova Labs" }];
-}
-
 export default async function WorkOGImage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = WORK.find((p) => p.slug === slug);
