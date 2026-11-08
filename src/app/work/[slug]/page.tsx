@@ -52,11 +52,13 @@ export default async function CaseStudyPage({
   const project = WORK[index];
   const next = WORK[(index + 1) % WORK.length];
 
-  const sections = [
-    ["The brief", project.challenge],
-    ["Our approach", project.approach],
-    ["The outcome", project.outcome],
-  ] as const;
+  const sections = (
+    [
+      ["The brief", project.challenge],
+      ["Our approach", project.approach],
+      ["The outcome", project.outcome],
+    ] as const
+  ).filter(([, body]) => body.trim().length > 0);
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -103,7 +105,7 @@ export default async function CaseStudyPage({
                 ["Client", project.client],
                 ["Category", project.category],
                 ["Year", project.year],
-                ["Summary", project.summary],
+                [project.tools ? "Tools" : "Summary", project.tools || project.summary],
               ].map(([k, v]) => (
                 <div key={k}>
                   <dt className="eyebrow">{k}</dt>
@@ -118,7 +120,17 @@ export default async function CaseStudyPage({
               className="relative mt-14 aspect-[16/9] w-full overflow-hidden rounded-sm border border-hairline"
               style={{ backgroundImage: project.tone }}
             >
-              {project.image ? (
+              {project.youtubeId ? (
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${project.youtubeId}?rel=0&modestbranding=1&playsinline=1`}
+                  title={`${project.title} - ${project.category}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full"
+                />
+              ) : project.image ? (
                 <Image src={project.image} alt={project.title} fill priority sizes="100vw" className="object-cover" />
               ) : (
                 <span className="eyebrow absolute inset-0 flex items-center justify-center">
@@ -128,6 +140,7 @@ export default async function CaseStudyPage({
             </div>
           </Reveal>
 
+          {sections.length > 0 && (
           <div className="mt-24 grid gap-16 md:mt-32">
             {sections.map(([heading, body]) => (
               <Reveal key={heading}>
@@ -140,6 +153,7 @@ export default async function CaseStudyPage({
               </Reveal>
             ))}
           </div>
+          )}
 
           <Reveal>
             <Link

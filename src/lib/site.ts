@@ -43,16 +43,41 @@ export type Project = {
   client: string;
   year: string;
   summary: string;
+  tools?: string;
   challenge: string;
   approach: string;
   outcome: string;
   /** Path in /public, e.g. "/work/project-one.jpg". Null shows the gradient. */
   image: string | null;
+  /** Optional YouTube video ID - embedded as the hero on the case study page. */
+  youtubeId?: string;
   tone: string;
 };
 
+/** Real, published projects. Shown first. Leave challenge/approach/outcome empty to hide that block. */
+const REAL_WORK: Project[] = [
+  {
+    slug: "be-infinity",
+    title: "BE Infinity",
+    category: "AI Commercial Ad",
+    client: "BE Infinity",
+    year: "2025",
+    summary: "Brand commercial celebrating women empowerment, crafted with generative AI.",
+    tools: "Google Flow",
+    challenge:
+      "BE Infinity needed a bold, memorable commercial ad that established their brand presence in the skincare space while centering a strong vision of women empowerment.",
+    approach:
+      "Directing AI synthesis with Google Flow, we engineered cinematic visuals, nuanced expressions, and warm golden lighting to capture confidence and modern femininity without traditional production bloat.",
+    outcome:
+      "Shipped a cinematic, high-impact commercial spot that delivered on the brand's vision with broadcast-grade fidelity at an order of magnitude faster turnaround.",
+    image: "/work/be-infinity.jpg",
+    youtubeId: "19mkTN1lt8U",
+    tone: "linear-gradient(140deg, #2a1d16 0%, #0a0a0a 60%)",
+  },
+];
+
 /** PLACEHOLDER - six sample entries. Each one gets a /work/[slug] page. */
-export const WORK: Project[] = [
+const SAMPLE_WORK: Project[] = [
   ["project-one", "AI Film", "linear-gradient(140deg, #101820 0%, #0a0a0a 60%)"],
   ["project-two", "Product CGI", "linear-gradient(140deg, #1a1420 0%, #0a0a0a 60%)"],
   ["project-three", "Social Campaign", "linear-gradient(140deg, #0e1a1c 0%, #0a0a0a 60%)"],
@@ -76,6 +101,8 @@ export const WORK: Project[] = [
   tone,
 }));
 
+export const WORK: Project[] = [...REAL_WORK, ...SAMPLE_WORK];
+
 /* ---------------------------- social proof ------------------------------ */
 /** Past clients - logos live in /public/clients. width/height = intrinsic size (for aspect ratio). */
 export const CLIENTS = [
@@ -86,6 +113,10 @@ export const CLIENTS = [
   { name: "Bharosa 365", logo: "/clients/bharosa-365.png", width: 240, height: 240 },
   { name: "Indian Press Union", logo: "/clients/indian-press-union.png", width: 1024, height: 1024 },
 ];
+
+/** Flip to true once STATS / TESTIMONIALS below contain real content. Hidden while they're placeholders. */
+export const SHOW_STATS = false;
+export const SHOW_TESTIMONIALS = false;
 
 /** PLACEHOLDER - only publish real figures. */
 export const STATS = [

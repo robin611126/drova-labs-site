@@ -59,7 +59,7 @@ export function ProjectTile({ project, index }: { project: Project; index: numbe
         aria-hidden
         className="absolute bottom-5 right-5 flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-[13px] text-white/70 transition-all duration-500 group-hover:border-accent group-hover:bg-accent group-hover:text-white"
       >
-        ↗
+        {project.youtubeId ? "▶" : "↗"}
       </span>
     </div>
   );

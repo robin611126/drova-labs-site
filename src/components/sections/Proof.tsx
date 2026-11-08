@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
-import { CLIENTS, STATS, TESTIMONIALS } from "@/lib/site";
+import { CLIENTS, SHOW_STATS, SHOW_TESTIMONIALS, STATS, TESTIMONIALS } from "@/lib/site";
 
 type Client = (typeof CLIENTS)[number];
 
@@ -77,6 +77,7 @@ export function Proof() {
           ))}
         </ul>
 
+        {SHOW_STATS && (
         <div className="mt-16 grid grid-cols-3 gap-4 md:mt-24 md:gap-10">
           {STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 90}>
@@ -91,8 +92,10 @@ export function Proof() {
             </Reveal>
           ))}
         </div>
+        )}
 
         {/* Phones: swipeable testimonial cards. Desktop: 3-column grid. */}
+        {SHOW_TESTIMONIALS && (
         <div className="-mx-6 mt-16 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-2 [scrollbar-width:none] md:mx-0 md:mt-24 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={i} delay={i * 90} className="w-[85%] shrink-0 snap-start md:w-auto">
@@ -110,6 +113,7 @@ export function Proof() {
             </Reveal>
           ))}
         </div>
+        )}
       </div>
     </section>
   );
