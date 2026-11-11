@@ -12,8 +12,9 @@ export const CONTACT_EMAIL = "hello@drovalabs.com";
 /** Optional Cal.com / Calendly link. Set to null to hide the button until ready. */
 export const BOOKING_URL: string | null = null;
 
-/** Showreel file in /public/reel. Set to null to hide the reel. */
-export const REEL_SRC: string | null = "/reel/showreel.mp4";
+/** Showreel configuration: Vimeo ID or local MP4 path */
+export const REEL_VIMEO_ID: string | null = "1245760213";
+export const REEL_SRC: string | null = null;
 export const REEL_POSTER: string | null = "/reel/poster.jpg";
 
 export const NAV_ITEMS = [
