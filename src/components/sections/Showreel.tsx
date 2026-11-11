@@ -9,12 +9,6 @@ export function Showreel() {
     <section id="reel" className="px-6 md:px-10">
       <Reveal>
         <div className="relative mx-auto aspect-video w-full max-w-[1400px] overflow-hidden rounded-sm border border-hairline bg-ink-raised">
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full border border-accent/60 text-accent">
-              ▶
-            </span>
-            <span className="eyebrow">Showreel - add /public/reel/showreel.mp4</span>
-          </div>
           <video
             className="relative h-full w-full object-cover"
             src={REEL_SRC}

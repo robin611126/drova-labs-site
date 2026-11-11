@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
-import { CLIENTS, SHOW_STATS, SHOW_TESTIMONIALS, STATS, TESTIMONIALS } from "@/lib/site";
+import { CLIENTS, STATS, TESTIMONIALS } from "@/lib/site";
 
 type Client = (typeof CLIENTS)[number];
 
@@ -20,11 +20,10 @@ function LogoCard({
 }) {
   return (
     <div
-      className={`group relative flex items-center justify-center overflow-hidden rounded-2xl bg-white px-6 py-4 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_12px_32px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 ${
-        interactive
-          ? "transition duration-500 ease-out-expo hover:-translate-y-1 hover:ring-2 hover:ring-accent/60 hover:shadow-[0_20px_50px_-15px_rgba(0,153,255,0.45)]"
-          : ""
-      } ${className}`}
+      className={`group relative flex items-center justify-center overflow-hidden rounded-2xl bg-white px-5 py-3 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_12px_32px_-12px_rgba(0,0,0,0.8)] ring-1 ring-white/10 ${interactive
+        ? "transition duration-500 ease-out-expo hover:-translate-y-1 hover:ring-2 hover:ring-accent/60 hover:shadow-[0_20px_50px_-15px_rgba(0,153,255,0.45)]"
+        : ""
+        } ${className}`}
     >
       <Image
         src={client.logo}
@@ -34,9 +33,8 @@ function LogoCard({
         height={client.height}
         unoptimized={client.logo.endsWith(".svg")}
         sizes="(min-width: 1024px) 200px, 168px"
-        className={`h-full w-full object-contain ${
-          interactive ? "transition-transform duration-500 ease-out-expo group-hover:scale-[1.04]" : ""
-        }`}
+        className={`h-auto max-h-full w-auto max-w-full object-contain ${interactive ? "transition-transform duration-500 ease-out-expo group-hover:scale-[1.04]" : ""
+          }`}
       />
     </div>
   );
@@ -77,7 +75,6 @@ export function Proof() {
           ))}
         </ul>
 
-        {SHOW_STATS && (
         <div className="mt-16 grid grid-cols-3 gap-4 md:mt-24 md:gap-10">
           {STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 90}>
@@ -92,10 +89,8 @@ export function Proof() {
             </Reveal>
           ))}
         </div>
-        )}
 
         {/* Phones: swipeable testimonial cards. Desktop: 3-column grid. */}
-        {SHOW_TESTIMONIALS && (
         <div className="-mx-6 mt-16 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-2 [scrollbar-width:none] md:mx-0 md:mt-24 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={i} delay={i * 90} className="w-[85%] shrink-0 snap-start md:w-auto">
@@ -113,7 +108,6 @@ export function Proof() {
             </Reveal>
           ))}
         </div>
-        )}
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fragment_Mono } from "next/font/google";
+import { Inter, Fragment_Mono, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -13,6 +13,14 @@ const fragmentMono = Fragment_Mono({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-fragment-mono",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -51,7 +59,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${fragmentMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fragmentMono.variable} ${instrumentSerif.variable}`}>
       <body className="grain antialiased">
         {children}
         <Analytics />

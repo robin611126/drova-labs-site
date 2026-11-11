@@ -14,15 +14,18 @@ export function Pricing() {
           </div>
         </Reveal>
 
-        <div className="mt-16 grid gap-6 md:mt-24 lg:grid-cols-3">
-          {PACKAGES.map((p, i) => (
-            <Reveal key={p.name} delay={i * 100}>
-              <div
-                className={`relative flex h-full flex-col rounded-sm border p-8 transition-all duration-500 hover:-translate-y-1 md:p-10 ${
-                  p.featured
-                    ? "border-accent/60 bg-gradient-to-b from-accent/10 to-transparent"
-                    : "border-hairline bg-ink-raised/40 hover:border-white/25"
-                }`}
+          {/* Phones: swipeable package cards. Desktop: 3-column grid. */}
+          <div className="-mx-6 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-6 px-6 pb-2 [scrollbar-width:none] md:mx-0 md:mt-24 md:gap-6 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:pb-0 [&::-webkit-scrollbar]:hidden">
+            {PACKAGES.map((p, i) => (
+                <Reveal
+                  key={p.name}
+                  delay={i * 100}
+                  className="w-[84%] max-w-[340px] shrink-0 snap-start lg:w-auto lg:max-w-none"
+                >
+                  <div
+                          ? "border-accent/60 bg-gradient-to-b from-accent/10 to-transparent"
+                          : "border-hairline bg-ink-raised/40 hover:border-white/25"
+                        }`}
               >
                 {p.featured && (
                   <span className="eyebrow absolute right-6 top-6 text-accent">Most chosen</span>

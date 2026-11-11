@@ -11,7 +11,7 @@ export function generateStaticParams() {
   return WORK.map((p) => ({ slug: p.slug }));
 }
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,

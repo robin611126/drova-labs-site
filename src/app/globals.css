@@ -13,8 +13,15 @@
   --color-accent: #0099ff;
   --color-hairline: rgb(255 255 255 / 0.1);
 
+  /* Logo palette - sampled from the chevron mark */
+  --color-brand-cyan: #5cc6f9;
+  --color-brand-violet: #875bfa;
+  --color-brand-lilac: #c9b8ff;
+  --color-brand-ice: #bfe9fd;
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-fragment-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -85,6 +92,25 @@
   }
   .marquee__track {
     animation: none !important;
+  }
+  .float-slow {
+    animation: none !important;
+  }
+}
+
+/* ------------------------------- float ----------------------------------- */
+/* Gentle idle bob for service illustrations. */
+.float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-1.5deg);
   }
 }
 

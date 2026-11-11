@@ -9,12 +9,12 @@ export const SITE_URL = "https://drovalabs.com";
 export const SITE_NAME = "Drova Labs";
 export const CONTACT_EMAIL = "hello@drovalabs.com";
 
-/** PLACEHOLDER - your Cal.com / Calendly link. Set to null to hide the button. */
-export const BOOKING_URL: string | null = "https://cal.com/your-handle/intro";
+/** Optional Cal.com / Calendly link. Set to null to hide the button until ready. */
+export const BOOKING_URL: string | null = null;
 
-/** PLACEHOLDER - showreel file in /public/reel. Set to null to hide the reel. */
+/** Showreel file in /public/reel. Set to null to hide the reel. */
 export const REEL_SRC: string | null = "/reel/showreel.mp4";
-export const REEL_POSTER: string | null = null;
+export const REEL_POSTER: string | null = "/reel/poster.jpg";
 
 export const NAV_ITEMS = [
   { label: "Services", href: "/#services" },
@@ -26,13 +26,10 @@ export const NAV_ITEMS = [
   { label: "Contact", href: "/#contact" },
 ] as const;
 
-/** PLACEHOLDER - replace "#" with your real profile URLs, or delete entries. */
 export const SOCIALS = [
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Behance", href: "#" },
-  { label: "Vimeo", href: "#" },
-  { label: "YouTube", href: "#" },
+  { label: "YouTube", href: "https://www.youtube.com/@drovalabs" },
+  { label: "Instagram", href: "https://www.instagram.com/drovalabs" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/drovalabs" },
 ] as const;
 
 /* ------------------------------- work ----------------------------------- */
@@ -54,8 +51,8 @@ export type Project = {
   tone: string;
 };
 
-/** Real, published projects. Shown first. Leave challenge/approach/outcome empty to hide that block. */
-const REAL_WORK: Project[] = [
+/** Real, published projects. Leave challenge/approach/outcome empty to hide that block. */
+export const WORK: Project[] = [
   {
     slug: "be-infinity",
     title: "BE Infinity",
@@ -74,34 +71,61 @@ const REAL_WORK: Project[] = [
     youtubeId: "19mkTN1lt8U",
     tone: "linear-gradient(140deg, #2a1d16 0%, #0a0a0a 60%)",
   },
+  {
+    slug: "yogita-malik-classes",
+    title: "Yogita Malik Classes",
+    category: "AI Education Commercial",
+    client: "Yogita Malik Coaching Classes",
+    year: "2025",
+    summary: "Inspiring commercial ad capturing the journey of academic ambition and mentorship.",
+    tools: "Generative AI Pipeline",
+    challenge:
+      "Yogita Malik Coaching Classes needed an evocative, story-driven commercial that connected emotionally with aspiring students and parents, communicating trust, discipline, and modern mentorship in education.",
+    approach:
+      "We crafted a warm, relatable campus narrative centered on student aspiration and mentorship. Using an advanced generative AI video pipeline, we directed authentic character interactions, cinematic campus environments, and natural golden-hour cinematography.",
+    outcome:
+      "Delivered a 45-second high-conversion commercial spot that elevated the institute's brand positioning, building immediate trust with incoming cohorts while avoiding costly on-location shoot logistics.",
+    image: "/work/yogita-malik.jpg",
+    youtubeId: "T47mnkE_vCY",
+    tone: "linear-gradient(140deg, #241c14 0%, #0a0a0a 60%)",
+  },
+  {
+    slug: "bharosa-365",
+    title: "Bharosa 365",
+    category: "AI Brand Film",
+    client: "Bharosa 365",
+    year: "2025",
+    summary: "Emotional family-first commercial highlighting peace of mind across distances.",
+    tools: "Generative AI Pipeline",
+    challenge:
+      "Bharosa 365 needed an emotionally resonant ad film that spoke directly to NRI children and Indian families — turning an abstract digital safety & care app into a deeply human story of trust.",
+    approach:
+      "We directed a heartfelt narrative bridging New York and India over a family video call. Every facial micro-expression, living-room detail, and emotional beat was art-directed through our generative cinema pipeline.",
+    outcome:
+      "Produced a deeply relatable brand film that anchored Bharosa 365's launch messaging around family trust and everyday reliability.",
+    image: "/work/bharosa-365.jpg",
+    youtubeId: "KJ0D79r1V5M",
+    tone: "linear-gradient(140deg, #102422 0%, #0a0a0a 60%)",
+  },
+  {
+    slug: "redbull-spec",
+    title: "Red Bull — Wedding Rush",
+    category: "AI Spec Commercial",
+    client: "Red Bull (Concept)",
+    year: "2025",
+    summary: "High-energy 100% AI-generated spec commercial set inside an Indian wedding.",
+    tools: "Generative AI Pipeline",
+    challenge:
+      "Reimagine Red Bull's iconic high-octane energy inside the vibrant chaos and cultural richness of a traditional Indian wedding — without a single camera, crew, or location permit.",
+    approach:
+      "We combined split-screen storytelling, ornate bridal and groom wardrobe styling, product-accurate can integration, and dynamic pacing to match Red Bull's unmistakable global tone.",
+    outcome:
+      "A 100% AI-generated spec commercial demonstrating how global beverage brands can localize campaigns at cinema quality in days.",
+    image: "/work/redbull.jpg",
+    youtubeId: "FuhBngh3KxA",
+    tone: "linear-gradient(140deg, #241418 0%, #0a0a0a 60%)",
+  },
 ];
-
-/** PLACEHOLDER - six sample entries. Each one gets a /work/[slug] page. */
-const SAMPLE_WORK: Project[] = [
-  ["project-one", "AI Film", "linear-gradient(140deg, #101820 0%, #0a0a0a 60%)"],
-  ["project-two", "Product CGI", "linear-gradient(140deg, #1a1420 0%, #0a0a0a 60%)"],
-  ["project-three", "Social Campaign", "linear-gradient(140deg, #0e1a1c 0%, #0a0a0a 60%)"],
-  ["project-four", "Brand Film", "linear-gradient(140deg, #1c1610 0%, #0a0a0a 60%)"],
-  ["project-five", "3D Animation", "linear-gradient(140deg, #101a14 0%, #0a0a0a 60%)"],
-  ["project-six", "Performance Creative", "linear-gradient(140deg, #1a1016 0%, #0a0a0a 60%)"],
-].map(([slug, category, tone], i) => ({
-  slug,
-  title: `Project title ${i + 1}`,
-  category,
-  client: "Client name",
-  year: "2026",
-  summary: "One-line summary of the project goes here.",
-  challenge:
-    "PLACEHOLDER - describe the brief: what the client needed, the deadline and what made it hard.",
-  approach:
-    "PLACEHOLDER - describe how you approached it: direction, tools, pipeline and iterations.",
-  outcome:
-    "PLACEHOLDER - describe the result: deliverables shipped and any metrics you are allowed to share.",
-  image: null,
-  tone,
-}));
-
-export const WORK: Project[] = [...REAL_WORK, ...SAMPLE_WORK];
 
 /* ---------------------------- social proof ------------------------------ */
 /** Past clients - logos live in /public/clients. width/height = intrinsic size (for aspect ratio). */
@@ -133,62 +157,81 @@ export const TESTIMONIALS = [
 ];
 
 /* ------------------------------- pricing -------------------------------- */
-/** PLACEHOLDER - set your real prices and inclusions. */
 export const PACKAGES = [
   {
     name: "Sprint",
-    price: "From $X",
-    blurb: "A single hero asset, fast.",
-    features: ["1 short film or product spot", "2 rounds of revisions", "Delivery in X days"],
+    price: "Custom",
+    blurb: "A single hero commercial or product spot, shipped fast.",
+    features: [
+      "1 hero AI commercial or 3D product film (30–45s)",
+      "Concept, script, art direction & sound design",
+      "2 rounds of structured revisions",
+      "Delivered in 5–7 business days",
+    ],
     featured: false,
   },
   {
     name: "Campaign",
-    price: "From $X",
-    blurb: "A full launch kit across formats.",
-    features: ["Hero film + cutdowns", "Stills and social formats", "3 rounds of revisions", "Delivery in X weeks"],
+    price: "Most Popular",
+    blurb: "A complete launch kit engineered across every format.",
+    features: [
+      "Hero commercial film + 3 social cutdowns (16:9, 9:16, 1:1)",
+      "High-res product stills & campaign key visuals",
+      "3 rounds of revisions at each gate",
+      "Delivered in 10–14 business days",
+    ],
     featured: true,
   },
   {
     name: "Retainer",
-    price: "$X / month",
-    blurb: "Ongoing creative volume.",
-    features: ["Monthly asset quota", "Priority turnaround", "Dedicated creative lead"],
+    price: "Monthly",
+    blurb: "Dedicated creative pipeline for ongoing ad volume.",
+    features: [
+      "Monthly quota of ad spots, hooks & creative testing",
+      "Priority 72-hour turnaround on variations",
+      "Dedicated creative director & Slack channel",
+      "Full commercial buyout on every deliverable",
+    ],
     featured: false,
   },
 ];
 
 /* --------------------------------- team --------------------------------- */
-/** PLACEHOLDER */
 export const ABOUT_TEXT =
-  "PLACEHOLDER - two or three sentences on who you are, where you are based and why you started Drova Labs.";
-export const TEAM = [
-  { name: "Full Name", role: "Founder, Creative Director" },
-  { name: "Full Name", role: "Head of CGI" },
-  { name: "Full Name", role: "AI Pipeline Lead" },
+  "Drova Labs is an AI-first creative studio founded by Bhavik, Shivam, and Himashree. We combine high-taste human creative direction with bleeding-edge generative pipelines to produce broadcast-grade ad films, commercials, and brand visuals in days, not months.";
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  image?: string | null;
+};
+
+export const TEAM: TeamMember[] = [
+  { name: "Bhavik", role: "Co-Founder · Sales & Team Management" },
+  { name: "Shivam", role: "Co-Founder · Marketing & Backend Operations" },
+  { name: "Himashree", role: "Co-Founder · Creative Director" },
 ];
 
 /* ---------------------------------- faq --------------------------------- */
-/** Review these answers - they describe your policies. */
 export const FAQS = [
   {
     q: "Who owns the rights to the work?",
-    a: "PLACEHOLDER - state your usage and ownership terms, e.g. full commercial rights transfer on final payment.",
+    a: "You do. Upon final payment, 100% of the commercial usage and broadcast rights for the final delivered assets transfer directly to your brand across all paid, organic, and broadcast channels.",
   },
   {
     q: "Is AI-generated content safe to use commercially?",
-    a: "PLACEHOLDER - explain which tools and licences you use and how you avoid copyrighted material.",
+    a: "Yes. We run enterprise-licensed generative pipelines (including Google Flow, commercial 3D/CGI, and licensed sound libraries) and art-direct original scenes from scratch — never scraping competitor work or unlicensed likenesses.",
   },
   {
     q: "How fast is turnaround?",
-    a: "PLACEHOLDER - typical timelines per package.",
+    a: "A single hero spot (Sprint) typically ships in 5–7 business days from brief sign-off. Full multi-format launch kits (Campaign) take 10–14 business days — roughly 5× faster than traditional live-action shoots.",
   },
   {
     q: "How many revisions are included?",
-    a: "PLACEHOLDER - your revision policy.",
+    a: "We work through four clear sign-off gates (Brief, Direction, Production, Delivery) so nothing surprises you at the end. Sprints include 2 full revision rounds and Campaigns include 3 rounds.",
   },
   {
     q: "What do you need from us to start?",
-    a: "PLACEHOLDER - e.g. brief, brand guidelines, product files or references, and a deposit.",
+    a: "A 20-minute brief or written overview, your brand guidelines or product photos/CAD files, any reference moodboards you love, and a 50% kickoff deposit.",
   },
 ];

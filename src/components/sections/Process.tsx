@@ -37,21 +37,21 @@ export function Process() {
           </div>
         </Reveal>
 
-        <ol className="mt-16 grid grid-cols-1 gap-px overflow-hidden border border-hairline bg-hairline md:mt-24 md:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-hairline bg-hairline md:mt-24 lg:grid-cols-4">
           {STEPS.map((step, index) => (
             <Reveal
               key={step.id}
               delay={index * 90}
               className="h-full"
             >
-              <li className="group flex h-full flex-col gap-6 bg-ink p-8 transition-colors duration-500 hover:bg-ink-raised md:p-10">
+              <li className="group flex h-full flex-col gap-4 bg-ink p-5 transition-colors duration-500 hover:bg-ink-raised md:gap-6 md:p-10">
                 <span className="eyebrow transition-colors duration-500 group-hover:text-accent">
                   {step.id}
                 </span>
-                <h3 className="text-[22px] font-medium tracking-tight">
+                <h3 className="text-[18px] font-medium tracking-tight md:text-[22px]">
                   {step.title}
                 </h3>
-                <p className="mt-auto text-[14px] leading-relaxed text-white/55">
+                <p className="mt-auto text-[13px] leading-relaxed text-white/55 md:text-[14px]">
                   {step.body}
                 </p>
               </li>
