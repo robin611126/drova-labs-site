@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fragment_Mono, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { Preloader } from "@/components/ui/Preloader";
 import "./globals.css";
 
 const inter = Inter({
@@ -61,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${fragmentMono.variable} ${instrumentSerif.variable}`}>
       <body className="grain antialiased">
+        <Preloader />
         {children}
         <Analytics />
       </body>
